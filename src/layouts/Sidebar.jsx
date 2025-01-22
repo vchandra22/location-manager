@@ -1,3 +1,5 @@
+import {Outlet} from "react-router-dom";
+
 const Sidebar = ({ children }) => {
   return (
     <div className="relative">
@@ -164,6 +166,7 @@ const Sidebar = ({ children }) => {
       {/* Render the children (this is where the page content goes) */}
       <div className="flex-1 p-4 dark:bg-neutral-600 min-h-screen">
         {children}
+        <Outlet/>
       </div>
     </div>
   );
