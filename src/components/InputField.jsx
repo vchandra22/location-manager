@@ -1,12 +1,12 @@
 export default function InputField(
-  {
-    id = "input-field",
-    label = "Label",
-    type = "text",
-    placeholder = "",
-    value = "",
-    onChange,
-    disabled = false,
+  { 
+    id, 
+    label, 
+    type, 
+    placeholder, 
+    value, 
+    onChange, 
+    error 
   }
 ) {
   return (
@@ -21,8 +21,8 @@ export default function InputField(
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        disabled={disabled}
       />
+      {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
     </div>
   )
 }

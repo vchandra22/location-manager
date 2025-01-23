@@ -10,12 +10,18 @@ export default function CreateData() {
     lat: "",
     lng: ""
   });
+  
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
     const {id, value} = e.target;
     setFormData((prev) => ({
       ...prev,
       [id]: value 
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [id]: ""
     }));
   }
   
@@ -28,12 +34,24 @@ export default function CreateData() {
         lat: parseFloat(formData.lat),
         lng: parseFloat(formData.lng)
       });
+      
       alert(response.data.message);
       console.log("Response:", response.data.data);
       setFormData({name: "", address: "", lat: "", lng: ""});
+      setErrors({});
     } catch (error) {
       console.log("Error submitting data", error);
-      alert("Failed to submit your data");
+      
+      if (error.response?.data?.errors) {
+        const errorMessage = {};
+        error.response.data.errors.forEach((err) => {
+          errorMessage[err.path] = err.msg;
+        });
+        setErrors(errorMessage);
+      } else {
+        alert("Failed to submit your data");
+      }
+      
     }
   }
   
@@ -51,6 +69,7 @@ export default function CreateData() {
             placeholder="Balai Kota Malang"
             value={formData.name}
             onChange={handleInputChange}
+            error={errors.name}
           />
           <InputField
             id="address"
@@ -59,6 +78,7 @@ export default function CreateData() {
             placeholder="Jl. Mayjend Panjaitan No.45"
             value={formData.address}
             onChange={handleInputChange}
+            error={errors.address}
           />
           <InputField
             id="lat"
@@ -67,6 +87,7 @@ export default function CreateData() {
             placeholder="-6.3024"
             value={formData.lat}
             onChange={handleInputChange}
+            error={errors.lat}
           />
           <InputField
             id="lng"
@@ -75,6 +96,7 @@ export default function CreateData() {
             placeholder="106.8955"
             value={formData.lng}
             onChange={handleInputChange}
+            error={errors.lng}
           />
           <div className="py-4">
             <Button label="Submit" type="submit" />
