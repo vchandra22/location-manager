@@ -10,12 +10,6 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-            {/*<Route path="/" element={*/}
-            {/*  <Sidebar>*/}
-            {/*    <IndexPage />*/}
-            {/*  </Sidebar>} */}
-            {/*/>*/}
-          
           <Route path="/" element={<Sidebar />}>
             <Route index element={<IndexPage />} />
             <Route path="/add-location" element={<CreateData />} />

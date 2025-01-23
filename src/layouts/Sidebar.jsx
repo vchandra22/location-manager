@@ -1,4 +1,4 @@
-import {Outlet} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 
 const Sidebar = ({ children }) => {
   return (
@@ -76,7 +76,7 @@ const Sidebar = ({ children }) => {
             <div className="pb-0 px-2 w-full flex flex-col flex-wrap">
               <ul className="space-y-1">
                 <li>
-                  <a
+                  <NavLink to={"/"}
                     className="flex items-center gap-x-3 py-2 px-2.5 bg-gray-100 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
                     href="#"
                   >
@@ -96,7 +96,7 @@ const Sidebar = ({ children }) => {
                       <polyline points="9 22 9 12 15 12 15 22"/>
                     </svg>
                     Dashboard
-                  </a>
+                  </NavLink>
                 </li>
 
                 <li>
