@@ -9,8 +9,8 @@ export default function IndexPage() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedLocation, setSelectedLocation] = useState({
-    lat: -6.895559,
-    lng: 110.984955,
+    lat: -6.404329,
+    lng:  106.925387,
   });
   const [isMarkerShow, setIsMarkerShow] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -95,7 +95,7 @@ export default function IndexPage() {
 
   return (
     <>
-      <div className="lg:ml-72 xl:ml-64 p-4">
+      <div className="lg:ml-72 xl:ml-64 lg:p-4">
         <div className="flex justify-between items-end mb-4 lg:mb-12">
           <h1 className="text-3xl font-bold text-start text-neutral-900">
             Data Lokasi

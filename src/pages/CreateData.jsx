@@ -67,11 +67,11 @@ export default function CreateData() {
   
   return (
     <>
-      <div className="lg:ml-72 xl:ml-64 p-4">
+      <div className="lg:ml-72 xl:ml-64 lg:p-4">
           <h1 className="text-3xl font-bold text-start text-neutral-900 mb-6">
             Create New Data Location
           </h1>
-        <div className="flex gap-4">
+        <div className="flex-none md:flex gap-4">
           <form onSubmit={handleSubmit}>
             <InputField
               id="name"

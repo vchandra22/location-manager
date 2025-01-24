@@ -9,7 +9,7 @@ export default function Maps({lat, lng, isMarkerShow = false, onClick}) {
           lat,
           lng,
         }}
-        zoom={14}
+        zoom={17}
         onClick={onClick}
       >
         {isMarkerShow && (
